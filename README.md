@@ -3,7 +3,9 @@
 
 # 个人图床
 
-点击观看效果：https://s33.aconvert.com/convert/p3r68-cdx67/tjnwj-v28ka.gif
+gif效果展示：https://s33.aconvert.com/convert/p3r68-cdx67/tjnwj-v28ka.gif
+
+视频效果展示：https://www.bilibili.com/video/av54565336/
 
 
 ## 开发背景
