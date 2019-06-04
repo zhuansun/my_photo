@@ -3,7 +3,7 @@
 
 # 个人图床
 
-![image](https://s33.aconvert.com/convert/p3r68-cdx67/tjnwj-v28ka.gif)
+点击观看效果：https://s33.aconvert.com/convert/p3r68-cdx67/tjnwj-v28ka.gif
 
 
 ## 开发背景
