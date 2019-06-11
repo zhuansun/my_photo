@@ -23,30 +23,30 @@ public class OssUtils {
 
     private static final Logger logger = LoggerFactory.getLogger(OssUtils.class);
 
-    private String accessKeyId = "阿里云oss提供";
+    private static final String ACCESSKEYID = "1111";
 
-    private String endpoint = "阿里云oss提供";
+    private static final String ENDPOINT = "2222";
 
-    private String accessKeySecret = "阿里云oss提供";
+    private static final String ACCESSKEYSECRET = "3333";
 
-    private String bucketName = "阿里云oss提供";
+    private static final String BUCKETNAME = "4444";
 
-    private String pictureURLPrefix = "阿里云oss提供";
+    private static final String PICTUREURLPREFIX = "5555";
 
-    private String originalURLPrefix = "阿里云oss提供";
+    private static final String ORIGINALURLPREFIX = "6666";
 
     public void uploadFile(File file) {
         OSSClient client = null;
         InputStream input = null;
         try {
-            client = new OSSClient(endpoint, accessKeyId, accessKeySecret);
+            client = new OSSClient(ENDPOINT, ACCESSKEYID, ACCESSKEYSECRET);
 
             ObjectMetadata meta = new ObjectMetadata();
 
             input = new FileInputStream(file);
             meta.setContentLength(file.length());
 
-            client.putObject(bucketName, file.getName(), input, meta);
+            client.putObject(BUCKETNAME, file.getName(), input, meta);
 
         } catch (Exception ex) {
             logger.error(ex.getMessage(), ex);
@@ -74,12 +74,12 @@ public class OssUtils {
      * @return 存储此内容的oss的地址
      */
     public String uploadFile(String fileName, String content) {
-        OSSClient client = new OSSClient(endpoint, accessKeyId, accessKeySecret);
+        OSSClient client = new OSSClient(ENDPOINT, ACCESSKEYID, ACCESSKEYSECRET);
         ObjectMetadata meta = new ObjectMetadata();
 
         meta.setContentLength(content.getBytes().length);
         try {
-            client.putObject(bucketName, fileName, new ByteArrayInputStream(content.getBytes()), meta);
+            client.putObject(BUCKETNAME, fileName, new ByteArrayInputStream(content.getBytes()), meta);
 
         } catch (Exception ex) {
             logger.error(ex.getMessage(), ex);
@@ -88,7 +88,7 @@ public class OssUtils {
 
         }
 
-        return pictureURLPrefix + fileName;
+        return PICTUREURLPREFIX + fileName;
     }
 
     /**
@@ -99,20 +99,20 @@ public class OssUtils {
      * @return 存储此内容的oss的地址
      */
     public String uploadFile(InputStream inputStream, long contentLength, String fileName) {
-        OSSClient client = new OSSClient(endpoint, accessKeyId, accessKeySecret);
+        OSSClient client = new OSSClient(ENDPOINT, ACCESSKEYID, ACCESSKEYSECRET);
 
         ObjectMetadata meta = new ObjectMetadata();
 
         meta.setContentLength(contentLength);
 
-        client.putObject(bucketName, fileName, inputStream, meta);
+        client.putObject(BUCKETNAME, fileName, inputStream, meta);
 
-        return pictureURLPrefix + fileName;
+        return PICTUREURLPREFIX + fileName;
 
     }
 
     public void uploadFile(InputStream inputStream, long contentLength, String fileName, String contentType) {
-        OSSClient client = new OSSClient(endpoint, accessKeyId, accessKeySecret);
+        OSSClient client = new OSSClient(ENDPOINT, ACCESSKEYID, ACCESSKEYSECRET);
 
         ObjectMetadata meta = new ObjectMetadata();
 
@@ -121,21 +121,21 @@ public class OssUtils {
             meta.setContentType(contentType);
         }
 
-        PutObjectResult result = client.putObject(bucketName, fileName, inputStream, meta);
+        PutObjectResult result = client.putObject(BUCKETNAME, fileName, inputStream, meta);
 
     }
 
     public boolean getFile(String prefix) {
-        OSSClient client = new OSSClient(endpoint, accessKeyId, accessKeySecret);
-        ListObjectsRequest listObjectsRequest = new ListObjectsRequest(bucketName, prefix, "", "", null);
+        OSSClient client = new OSSClient(ENDPOINT, ACCESSKEYID, ACCESSKEYSECRET);
+        ListObjectsRequest listObjectsRequest = new ListObjectsRequest(BUCKETNAME, prefix, "", "", null);
         ObjectListing listing = client.listObjects(listObjectsRequest);
         List<OSSObjectSummary> ossOSList = listing.getObjectSummaries();
         return ossOSList != null && !ossOSList.isEmpty() ? true : false;
     }
 
     public List getFileList(String prefix) {
-        OSSClient client = new OSSClient(endpoint, accessKeyId, accessKeySecret);
-        ListObjectsRequest listObjectsRequest = new ListObjectsRequest(bucketName, prefix, "", "", null);
+        OSSClient client = new OSSClient(ENDPOINT, ACCESSKEYID, ACCESSKEYSECRET);
+        ListObjectsRequest listObjectsRequest = new ListObjectsRequest(BUCKETNAME, prefix, "", "", null);
         ObjectListing listing = client.listObjects(listObjectsRequest);
         List<OSSObjectSummary> ossOSList = listing.getObjectSummaries();
         return ossOSList;
@@ -145,8 +145,8 @@ public class OssUtils {
         if (url == null || "".equals(url)) {
             return null;
         }
-        if (url.contains(originalURLPrefix)) {
-            return url.replaceAll(originalURLPrefix, pictureURLPrefix);
+        if (url.contains(ORIGINALURLPREFIX)) {
+            return url.replaceAll(ORIGINALURLPREFIX, PICTUREURLPREFIX);
         }
         return url;
     }

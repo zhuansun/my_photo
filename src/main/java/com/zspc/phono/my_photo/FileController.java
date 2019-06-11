@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.UUID;
 
 /**
  * 测试controlelr
@@ -29,7 +32,6 @@ public class FileController {
         return "/index";
     }
 
-
     /**
      * 开始上传
      * @param files
@@ -38,19 +40,17 @@ public class FileController {
     @RequestMapping("/upload")
     @ResponseBody
     public String test1(@RequestBody MultipartFile files){
-
         String url;
-
+        String fileName;
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM");
         try {
-            url =  ossUtils.uploadFile(files.getInputStream(),files.getSize(),files.getOriginalFilename());
+            fileName = simpleDateFormat.format(new Date())+"/"+UUID.randomUUID().toString().substring(0,5)+"-"+files.getOriginalFilename();
+            url =  ossUtils.uploadFile(files.getInputStream(),files.getSize(),fileName);
         } catch (IOException e) {
             e.printStackTrace();
             url = files.getOriginalFilename()+"-->上传失败";
         }
-
         return url;
     }
-
-
 
 }
