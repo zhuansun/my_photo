@@ -3,7 +3,6 @@
 
 # 个人图床
 
-gif效果展示：https://s33.aconvert.com/convert/p3r68-cdx67/tjnwj-v28ka.gif
 
 视频效果展示：https://www.bilibili.com/video/av54565336/
 
@@ -37,6 +36,8 @@ gif效果展示：https://s33.aconvert.com/convert/p3r68-cdx67/tjnwj-v28ka.gif
 
 - 首先准备阿里云oss的配置，按照官网自己购买即可。
 
+
+
 ### 前端js插件的准备
 
 
@@ -60,6 +61,10 @@ gif效果展示：https://s33.aconvert.com/convert/p3r68-cdx67/tjnwj-v28ka.gif
 
 - 将项目达成jar包，直接java -jar xxx.jar 就可以了
 - 这也是springboot的优点
-- 然后访问：ip:8080/index 即可使用
+- 然后访问：ip:8080/index 即可使用 或者 ip:8080
+
+
+## 修改建议
+- 项目端口修改：在application.properties中
 
 
