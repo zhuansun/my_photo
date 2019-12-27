@@ -1,4 +1,4 @@
-package com.zspc.phono.my_photo;
+package com.zspc.photo.my_photo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

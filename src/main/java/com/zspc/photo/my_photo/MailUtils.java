@@ -1,4 +1,4 @@
-package com.zspc.phono.my_photo;
+package com.zspc.photo.my_photo;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Date;

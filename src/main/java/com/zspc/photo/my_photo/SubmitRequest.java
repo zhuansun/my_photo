@@ -1,4 +1,4 @@
-package com.zspc.phono.my_photo;
+package com.zspc.photo.my_photo;
 
 /**
  * @author : zhuansun

@@ -1,4 +1,4 @@
-package com.zspc.phono.my_photo;
+package com.zspc.photo.my_photo;
 
 import java.util.Arrays;
 import java.util.regex.Pattern;
