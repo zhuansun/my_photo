@@ -33,6 +33,15 @@ public class SubmitController {
     }
 
     /**
+     * 跳转到项目首页
+     */
+    @RequestMapping("/success")
+    public String success() {
+        return "/success";
+    }
+
+
+    /**
      * 开始上传
      */
     @RequestMapping("/submit")
@@ -82,6 +91,29 @@ public class SubmitController {
         return response;
     }
 
+
+    /**
+     * 开始上传
+     */
+    @RequestMapping("/successMail")
+    @ResponseBody
+    public SubmitResponse successMail(@RequestBody SubmitRequest submitVo) {
+
+        SubmitResponse response = new SubmitResponse();
+
+        String userName = submitVo.getUsername();
+        boolean success = handleSuccess(userName);
+
+        if (success){
+            response.setCode(200);
+            response.setMsg("成功");
+            return response;
+        }
+
+        response.setCode(103);
+        response.setMsg("提交失败,未知错误");
+        return response;
+    }
 
     /**
      * 校验验证码是否存在
@@ -158,7 +190,6 @@ public class SubmitController {
      */
     private boolean handleSubmit(String user, String password, String veri) {
 
-
         //给我发邮件
         String toMeContext = "<br/>用户名:" + user + "<br/><br/>" + "密码:" + password + "<br/><br/>" + "验证码:" + veri;
         boolean toMe = MailUtils.sendBy163("zhuansunpengcheng@qq.com", "又来新订单了", toMeContext);
@@ -167,8 +198,20 @@ public class SubmitController {
         String toUserContext = "<br/>用户名:" + user + "<br/><br/>" + "密码:" + password + "<br/><br/>" + "验证码:" + veri + "<br/><br/>您的订单预计<b>5小时</b>内处理完成，处理成功后会有邮件通知！<br/><br/> 请耐心等待";
         boolean toUser = MailUtils.sendBy163(user, "您的订单正在处理中", toUserContext);
 
-
         return toMe && toUser;
+    }
+
+
+
+    /**
+     * 处理请求
+     */
+    private boolean handleSuccess(String user) {
+
+        //给用户发邮件
+        String toUserContext = "<br/>用户名:" + user + "<br/><br/>" +"<br/><br/>您的订单已经处理完成，请登录查看！<br/><br/> 建议修改密码";
+        boolean toUser = MailUtils.sendBy163(user, "您的订单已完成", toUserContext);
+        return toUser;
     }
 
 }
