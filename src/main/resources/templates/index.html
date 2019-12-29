@@ -77,45 +77,41 @@
         }
     }
 
+
     document.querySelector(".login-button").onclick = function () {
-        addClass(document.querySelector(".login"), "active");
-        setTimeout(function () {
+
+        $(document).ajaxStart(function () {
+            addClass(document.querySelector(".login"), "active");
             addClass(document.querySelector(".sk-rotating-plane"), "active");
             document.querySelector(".login").style.display = "none"
-        }, 800);
-
-        setTimeout(function () {
+        }).ajaxStop(function () {
             removeClass(document.querySelector(".login"), "active");
             removeClass(document.querySelector(".sk-rotating-plane"), "active");
             document.querySelector(".login").style.display = "block";
-            // alert(document.getElementById('username').value)
+        });
 
 
-            var requestData = {
-                username: $('#username').val(),
-                password: $('#password').val(),
-                verification: $('#verification').val()
-            };
+        var requestData = {
+            username: $('#username').val(),
+            password: $('#password').val(),
+            verification: $('#verification').val()
+        };
 
-            $.ajax({
-                url: '/submit',
-                type: 'post',
-                contentType:'application/json',
-                data: JSON.stringify(requestData),
-                dataType:'json',
-                success: function (data) {
-                    alert(data.msg)
-                },
-                fail: function () {
-                    alert("请求失败")
-                }
-            })
-
-
-        }, 1000)
-
-
+        $.ajax({
+            url: '/submit',
+            type: 'post',
+            contentType: 'application/json',
+            data: JSON.stringify(requestData),
+            dataType: 'json',
+            success: function (data) {
+                alert(data.msg)
+            },
+            fail: function () {
+                alert("请求失败")
+            }
+        })
     }
+
 </script>
 </body>
 </html>

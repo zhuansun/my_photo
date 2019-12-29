@@ -18,10 +18,9 @@ public class MailUtils {
 
 
 
-
     public static boolean sendBy163(String to, String subject, String content) {
-        return send(to, subject,content, "smtp", "smtp.163.com", "zhuansunpengcheng@163.com","465",
-             "zhuansunpengcheng","zhuansun1995");
+        return send(to, subject,content, "smtp", "smtp.163.com", "let_friend@163.com","465",
+             "let_friend","zhuansun1996");
     }
 
 
@@ -39,8 +38,7 @@ public class MailUtils {
      * @param userPwd  邮件发送人密码
      * @return 成功或失败
      */
-    private static boolean send(String to, String subject, String content, String smtp, String host,
-        String sendName, String sendPort, String userName, String userPwd) {
+    private static boolean send(String to, String subject, String content, String smtp, String host,String sendName, String sendPort, String userName, String userPwd) {
 
         // 第一步：创建Session
         Properties props = new Properties();
@@ -56,7 +54,7 @@ public class MailUtils {
         Session session = Session.getDefaultInstance(props);
 
         // 开启调试模式
-        //session.setDebug(true);
+        session.setDebug(true);
         try {
             // 第二步：获取邮件发送对象
             Transport transport = session.getTransport();

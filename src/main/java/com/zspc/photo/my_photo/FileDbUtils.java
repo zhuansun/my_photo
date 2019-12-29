@@ -1,7 +1,9 @@
 package com.zspc.photo.my_photo;
 
-import com.zspc.photo.db.database.FileDataBase;
-import com.zspc.photo.db.operation.FileDbOperation;
+import org.springframework.util.ResourceUtils;
+
+import java.io.File;
+import java.io.IOException;
 
 /**
  * 用txt文件充当数据库
@@ -11,22 +13,22 @@ import com.zspc.photo.db.operation.FileDbOperation;
  **/
 public class FileDbUtils {
 
-    private static FileDbOperation dbOperation;
 
-    static {
-        dbOperation = new FileDbOperation(new FileDataBase());
+    public static File loadFile(String path) {
+
+
+        File file=null;
+        try {
+//            file = ResourceUtils.getFile("classpath:" + path);
+            file = new File(path);
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return file;
     }
-
-
-    void insert(String data){
-        dbOperation.insert(data);
-    }
-
-
-    String search(String data){
-        return dbOperation.search(data);
-    }
-
 
 
 }
