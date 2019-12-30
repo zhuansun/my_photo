@@ -22,8 +22,6 @@ public class SubmitController {
     private static final Pattern REGEX = Pattern.compile(
             "^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$");
 
-    private static final String[] VERIFICATIONS = {"666666"};
-
     /**
      * 跳转到项目首页
      */
@@ -119,15 +117,10 @@ public class SubmitController {
      * 校验验证码是否存在
      */
     private boolean checkVeri(String veri) {
-
         String path = ClassLoader.getSystemResource("db/verification.txt").getPath();
-
         File file = FileDbUtils.loadFile(path);
-
         List<String> notUsedVerification = new ArrayList<>();
-
         boolean check = false;
-
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
             String s = null;
@@ -145,7 +138,6 @@ public class SubmitController {
                 notUsedVerification.remove(veri);
             }
         }
-
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(file));
             if (!CollectionUtils.isEmpty(notUsedVerification)) {
@@ -166,7 +158,6 @@ public class SubmitController {
     /**
      * 将验证码写入文件
      */
-
     public void writeRecode(String user, String veri) {
 
         String path = ClassLoader.getSystemResource("db/usedVerification.txt").getPath();
