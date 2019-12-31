@@ -64,6 +64,11 @@ public class MailUtils {
         props.put("mail.smtp.socketFactory.port", sendPort);
         Session session = Session.getDefaultInstance(props);
 
+
+
+
+
+
         // 开启调试模式
         session.setDebug(true);
         // 第二步：获取邮件发送对象
