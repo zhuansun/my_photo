@@ -15,11 +15,8 @@ public class FileDbUtils {
 
 
     public static File loadFile(String path) {
-
-
         File file=null;
         try {
-//            file = ResourceUtils.getFile("classpath:" + path);
             file = new File(path);
             if (!file.exists()) {
                 file.createNewFile();

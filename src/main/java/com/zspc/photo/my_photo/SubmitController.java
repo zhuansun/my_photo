@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.ResourceUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,6 +36,7 @@ public class SubmitController {
      */
     @RequestMapping("/success")
     public String success() {
+
         return "/success";
     }
 
@@ -117,7 +119,7 @@ public class SubmitController {
      * 校验验证码是否存在
      */
     private boolean checkVeri(String veri) {
-        String path = ClassLoader.getSystemResource("db/verification.txt").getPath();
+        String path = "/root/submit/db/verification.txt";
         File file = FileDbUtils.loadFile(path);
         List<String> notUsedVerification = new ArrayList<>();
         boolean check = false;
@@ -158,12 +160,10 @@ public class SubmitController {
     /**
      * 将验证码写入文件
      */
-    public void writeRecode(String user, String veri) {
-
-        String path = ClassLoader.getSystemResource("db/usedVerification.txt").getPath();
+    private void writeRecode(String user, String veri) {
+        String path = "/root/submit/db/usedVerification.txt";
 
         File file = FileDbUtils.loadFile(path);
-
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(file, true));
             bw.newLine();
@@ -204,5 +204,8 @@ public class SubmitController {
         boolean toUser = MailUtils.sendBy163(user, "您的订单已完成", toUserContext);
         return toUser;
     }
+
+
+
 
 }
