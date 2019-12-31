@@ -6,15 +6,15 @@ package com.zspc.photo.my_photo;
  **/
 public class SubmitResponse {
 
-    private int code;
+    private String code;
 
     private String msg;
 
-    public int getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(String code) {
         this.code = code;
     }
 
@@ -25,4 +25,22 @@ public class SubmitResponse {
     public void setMsg(String msg) {
         this.msg = msg;
     }
+
+    public SubmitResponse(String code, String msg) {
+        this.code = code;
+        this.msg = msg;
+    }
+
+    public static SubmitResponse buildSuccess(){
+        return new SubmitResponse("200","提交成功");
+    }
+
+    public static SubmitResponse buildError(String code , String msg){
+        return new SubmitResponse(code,msg);
+    }
+
+    public static SubmitResponse buildUnkownError(){
+        return new SubmitResponse("101","未知异常");
+    }
+
 }

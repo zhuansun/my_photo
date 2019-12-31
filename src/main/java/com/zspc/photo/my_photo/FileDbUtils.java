@@ -1,7 +1,5 @@
 package com.zspc.photo.my_photo;
 
-import org.springframework.util.ResourceUtils;
-
 import java.io.File;
 import java.io.IOException;
 
@@ -27,5 +25,16 @@ public class FileDbUtils {
         return file;
     }
 
+
+    public static File loadVeriFile(){
+        String path = "/root/submit/db/verification.txt";
+        return FileDbUtils.loadFile(path);
+    }
+
+
+    public static File loadUsedVeriFile(){
+        String path = "/root/submit/db/usedVerification.txt";
+        return FileDbUtils.loadFile(path);
+    }
 
 }
