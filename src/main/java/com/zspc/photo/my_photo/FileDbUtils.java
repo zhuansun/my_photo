@@ -27,13 +27,15 @@ public class FileDbUtils {
 
 
     public static File loadVeriFile(){
-        String path = "/root/submit/db/verification.txt";
+//        String path = "/root/submit/db/verification.txt";
+        String path = "/Users/zhuansun/Desktop/verification.txt";
         return FileDbUtils.loadFile(path);
     }
 
 
     public static File loadUsedVeriFile(){
-        String path = "/root/submit/db/usedVerification.txt";
+//        String path = "/root/submit/db/usedVerification.txt";
+        String path = "/Users/zhuansun/Desktop/usedVerification.txt";
         return FileDbUtils.loadFile(path);
     }
 

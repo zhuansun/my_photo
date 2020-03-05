@@ -10,7 +10,8 @@
         <property name="logPattern">%d{yyyy-MM-dd HH:mm:ss z} %-5level %class{36} %L %M - %msg%xEx%n</property>
         <!-- 日志输出文件的bath路径，对于linux是在 cd /data/... -->
         <!--<property name="basePath">D:\\workspace_my\\logs</property>-->
-        <property name="basePath">/root/submit/logs</property>
+        <!--<property name="basePath">/root/submit/logs</property>-->
+        <property name="basePath">/Users/zhuansun/data/www/logs/apps</property>
         <!-- 项目名称，目前还不知道有什么用 -->
         <property name="projectName">submit</property>
     </Properties>
