@@ -1,13 +1,13 @@
-package com.zspc.phono.my_photo;
+package com.zspc.game.name;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MyPhotoApplication {
+public class GameNameApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MyPhotoApplication.class, args);
+		SpringApplication.run(GameNameApplication.class, args);
 	}
 
 }

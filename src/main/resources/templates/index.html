@@ -1,51 +1,50 @@
-<!DOCTYPE html>
-<html lang="zh">
+<!--Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>个人图床</title>
-
-<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="../static/css/style.css">
-<link rel="stylesheet" href="../static/css/ssi-uploader.css"/>
-
+    <title>游戏空格名(公众号)</title>
+    <script type="text/javascript" src="../static/js/game.js"></script>
+    <script type="text/javascript" src="../static/js/jquery-3.4.1.min.js"></script>
+    <!-- Custom Theme files -->
+    <link href="../static/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <!-- Custom Theme files -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="文艺小卿年"/>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+          rel='stylesheet' type='text/css'>
+    <!--Google Fonts-->
 </head>
 <body>
-<div class="container">
-	<div class="container">
-		<h3>前端js插件感谢：http://www.jq22.com/jquery-info9613</h3>
-		<div class="row">
-			<div class="col-md-12">
-				<h3>基本演示（支持jpg、gif、txt、png和pdf格式文件）</h3>
-				<input type="file" multiple id="ssi-upload"/>
-			</div>
-		</div>
-		<div id = "successResult">
+<!--search start here-->
+<div class="search">
+    <p>使用方法：</p>
+    <p>1.王者荣耀最多支持六个汉字的名字。</p>
+    <p>2.本页面允许输入的最大长度是6个字符（包括汉字和英文）。</p>
+    <p>3.生成之后，将生成的游戏名复制到游戏即可，记得要复制完整。</p>
+    <p>4.如果提示游戏名已存在，多试几个，每个游戏名都是不同的。</p>
+    <!--<p>5.有问题请联系微信公众号：【热心小网友】。</p>-->
 
-		</div>
-		<!-- <div class="row">
-			<div class="col-md-12">
-				<h3>无预览图效果：</h3>
-				<input type="file" multiple id="ssi-upload2"/>
-			</div>
-		</div> -->
-		<!-- <div class="row">
-			<div class="col-md-12">
-				<h3>不带拖放区域：</h3>
-				<input type="file" multiple id="ssi-upload3"/>
-			</div>
-		</div> -->
-	</div>
+    <div class="s-bar">
+        <input id="gameName" type="text" value="输入游戏名" onfocus="this.value = '';"
+               onblur="if (this.value === '') {this.value = '输入游戏名';}">
+        <input type="submit" value="生成" onclick="startGenerate()"/>
+    </div>
+    <!--<p>Popular searches: <a href="#">Modern PSD template,</a> <a href="#"> Portfolio design </a></p>-->
+    <!--<p>2020 Create By 文艺小卿年</p>-->
+    <div id="result" style="color: #4bff39;"></div>
+
 </div>
-
-<script src="../static/js/jquery-2.1.1.min.js" type="text/javascript"></script>
-<script src="../static/js/ssi-uploader.js"></script>
-<script type="text/javascript">
-	$('#ssi-upload').ssi_uploader({url:'/upload',maxFileSize:6,locale:"zh",allowed:['jpg','gif','txt','png','pdf']});
-//	$('#ssi-upload2').ssi_uploader({url:'#',preview:false,allowed:['jpg','gif','txt','png','pdf']});
-//	$('#ssi-upload3').ssi_uploader({url:'#',dropZone:false,allowed:['jpg','gif','txt','png','pdf']});
-</script>
-
+<!--search end here-->
+<div class="copyright">
+    <!--<p>2020 Create By 文艺小卿年 | Template by <a href="http://w3layouts.com/" target="_blank"> W3layouts </a></p>-->
+    <p></p>
+</div>
 </body>
 </html>
