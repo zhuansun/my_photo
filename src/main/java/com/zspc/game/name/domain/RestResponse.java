@@ -1,6 +1,4 @@
-package com.zspc.game.name;
-
-import java.util.List;
+package com.zspc.game.name.domain;
 
 public class RestResponse {
 
@@ -9,7 +7,7 @@ public class RestResponse {
 
     private String msg = "SUCCESS";
 
-    private List<String> data;
+    private Object data;
 
     public Integer getCode() {
         return code;
@@ -29,12 +27,11 @@ public class RestResponse {
         return this;
     }
 
-    public List<String> getData() {
+    public Object getData() {
         return data;
     }
 
-    public RestResponse setData(List<String> data) {
+    public void setData(Object data) {
         this.data = data;
-        return this;
     }
 }

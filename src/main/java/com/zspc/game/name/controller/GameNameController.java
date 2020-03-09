@@ -1,6 +1,8 @@
-package com.zspc.game.name;
+package com.zspc.game.name.controller;
 
 
+import com.zspc.game.name.domain.GameNameVo;
+import com.zspc.game.name.domain.RestResponse;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

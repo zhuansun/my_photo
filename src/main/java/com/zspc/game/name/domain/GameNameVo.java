@@ -1,4 +1,4 @@
-package com.zspc.game.name;
+package com.zspc.game.name.domain;
 
 public class GameNameVo {
     private String name;
